@@ -1,14 +1,31 @@
-title: "Variable Name Declaration"
-description: |
-  In this assignment, you will declare a variable `name` and assign a string value to it. The value can be any string of your choice.
-tests:
-  - name: "Test for variable 'name'"
-    run: "python3 -m unittest test_declare_variable.py"
-    points: 1
-autograding:
-  language: python
-  setup: ""
-  tests:
-    - name: "Test for variable 'name'"
-      run: "python3 -m unittest test_declare_variable.py"
-      points: 1
+name: GitHub Classroom Workflow
+
+on: [push]
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checkout Unittests
+        uses: actions/checkout@v2
+        with:
+          repository: 'Techstarter-GH-Classroom-Test/_classroom_unit_tests'
+          path: unittests
+          ref: 'main' 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Oder eine spezifische Version wie '3.8'
+
+      - name: Install Flake8
+        run: pip install flake8
+
+      - name: Copy Unittests
+        run: cp unittests/* .
+
+      - name: Grade Code Style
+        run: python grade.py
+
+      - uses: education/autograding@v1
