@@ -1,0 +1,14 @@
+title: "Variable Name Declaration"
+description: |
+  In this assignment, you will declare a variable `name` and assign a string value to it. The value can be any string of your choice.
+tests:
+  - name: "Test for variable 'name'"
+    run: "python3 -m unittest test_declare_variable.py"
+    points: 1
+autograding:
+  language: python
+  setup: ""
+  tests:
+    - name: "Test for variable 'name'"
+      run: "python3 -m unittest test_declare_variable.py"
+      points: 1

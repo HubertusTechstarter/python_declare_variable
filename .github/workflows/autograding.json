@@ -1,0 +1,15 @@
+{
+    "tests": [
+      {
+        "name": "Test for variable 'name'",
+        "setup": "",
+        "run": "python3 -m unittest test_declare_variable.TestNameVariable.test_name_variable",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 1
+      }
+    ]
+  }
+  

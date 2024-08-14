@@ -1,0 +1,3 @@
+# hier die Variable deklarieren
+
+
